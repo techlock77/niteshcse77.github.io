@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Dark Mode Styles
+   ========================================================================== */
+
+/* Dark mode body and container */
+.dark-mode body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+.dark-mode .container {
+    background-color: rgba(30, 41, 59, 0.95);
+    border-color: rgba(30, 41, 59, 0.4);
+}
+
+.dark-mode .container::before {
+    opacity: 0.1;
+}
+
+/* Dark mode section styling */
+.dark-mode section {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode section h2 {
+    color: #38bdf8;
+    border-bottom-color: rgba(56, 189, 248, 0.2);
+}
+
+.dark-mode section:nth-of-type(2n) h2 {
+    color: #4ade80;
+    border-bottom-color: rgba(74, 222, 128, 0.2);
+}
+
+.dark-mode section:nth-of-type(3n) h2 {
+    color: #fb923c;
+    border-bottom-color: rgba(251, 146, 60, 0.2);
+}
+
+/* Dark mode navigation */
+.dark-mode .nav {
+    background-color: #0f172a;
+}
+
+.dark-mode .nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode form elements */
+.dark-mode input, 
+.dark-mode textarea {
+    background-color: #334155;
+    border-color: #475569;
+    color: #e2e8f0;
+}
+
+.dark-mode input::placeholder, 
+.dark-mode textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Dark mode buttons */
+.dark-mode button, 
+.dark-mode input[type="submit"] {
+    background-color: #38bdf8;
+}
+
+.dark-mode button:hover, 
+.dark-mode input[type="submit"]:hover {
+    background-color: #0ea5e9;
+}
+
+/* Dark mode theme toggle button */
+.dark-mode .theme-toggle {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(30, 41, 59, 0.9);
+    color: #e2e8f0;
+}
+
+.dark-mode .theme-toggle:hover {
+    background: rgba(30, 41, 59, 0.9);
+}
+
+/* Dark mode skills tags */
+.dark-mode .skill-tag {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+}
+
+.dark-mode .skill-tag:hover {
+    background-color: #38bdf8;
+    color: #0f172a;
+}
+
+/* Dark mode client cards */
+.dark-mode .client {
+    background-color: #1e293b;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .client-logo {
+    background-color: #0f172a;
+    border-bottom: 1px solid #334155;
+}
+
+.dark-mode .client-info p {
+    color: #cbd5e1;
+}
+
+/* Dark mode for captcha */
+.dark-mode .captcha-container {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+}
+
+/* Dark mode logos */
+.dark-mode .logo-img {
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Dark Mode for Metrics */
+.dark-mode .metric {
+    background-color: #1e293b;
+    border-left-color: #38bdf8;
+}
+
+.dark-mode .metric-value {
+    color: #38bdf8;
+}
+
+.dark-mode .metric-label {
+    color: #e2e8f0;
+}
+
+.dark-mode .metric:nth-child(2) {
+    border-left-color: #4ade80;
+}
+
+.dark-mode .metric:nth-child(3) {
+    border-left-color: #fb923c;
+}
+
+.dark-mode .metric:nth-child(4) {
+    border-left-color: #a78bfa;
+}
+
+.dark-mode .metric:nth-child(2) .metric-value {
+    color: #4ade80;
+}
+
+.dark-mode .metric:nth-child(3) .metric-value {
+    color: #fb923c;
+}
+
+.dark-mode .metric:nth-child(4) .metric-value {
+    color: #a78bfa;
+}
+
+/* Dark mode scroll indicator */
+.dark-mode .scroll-indicator {
+    background-color: rgba(15, 23, 42, 0.9);
+}
+
+.dark-mode .scroll-section {
+    color: #94a3b8;
+}
+
+.dark-mode .scroll-section.active {
+    color: #38bdf8;
+    border-left-color: #38bdf8;
+}
+
+/* Dark mode data particles */
+.dark-mode .data-particle {
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* Update animations for dark mode */
+.dark-mode .data-burst {
+    background: linear-gradient(135deg, #38bdf8, #4ade80);
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+}
+
+/* Dark mode footer */
+.dark-mode footer {
+    background-color: #0f172a;
+}

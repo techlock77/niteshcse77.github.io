@@ -1,0 +1,172 @@
+@keyframes floatParticle {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.15;
+    }
+    90% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translate(calc(-50vw + 50%), calc(-50vh + 50%)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particleBurst {
+    0% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+    50% {
+        transform: scale(2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+}
+
+/* ==========================================================================
+   Data Burst and Flow Animations 
+   ========================================================================== */
+.data-burst {
+    position: absolute;
+    display: inline-block;
+    padding: 3px 8px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 10;
+    transform-origin: center;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+@keyframes dataBurst {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(
+            calc(var(--random-x) * 1px),
+            calc(var(--random-y) * 1px)
+        ) scale(1);
+        opacity: 0;
+    }
+}
+
+.section-connection {
+    position: absolute;
+    width: 2px;
+    background-color: var(--primary-color);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.flow-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+@keyframes flowDown {
+    0% { top: 0; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.data-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 5s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ==========================================================================
+   Floating Data Particles
+   ========================================================================== */
+.floating-data-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.data-particle {
+    position: absolute;
+    display: block;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    opacity: 0.15;
+    animation: floatParticle 15s linear infinite;
+    box-shadow: 0 0 10px rgba(0, 121, 255, 0.1);
+    z-index: 1;
+}
+
+.data-particle:nth-child(1) { top: 10%; left: 5%; animation-duration: 13s; animation-delay: 0s; }
+.data-particle:nth-child(2) { top: 15%; left: 95%; animation-duration: 18s; animation-delay: 1s; }
+.data-particle:nth-child(3) { top: 30%; left: 8%; animation-duration: 16s; animation-delay: 2s; }
+.data-particle:nth-child(4) { top: 40%; left: 93%; animation-duration: 14s; animation-delay: 3s; }
+.data-particle:nth-child(5) { top: 50%; left: 12%; animation-duration: 17s; animation-delay: 4s; }
+.data-particle:nth-child(6) { top: 65%; left: 92%; animation-duration: 15s; animation-delay: 5s; }
+.data-particle:nth-child(7) { top: 75%; left: 7%; animation-duration: 19s; animation-delay: 6s; }
+.data-particle:nth-child(8) { top: 85%; left: 90%; animation-duration: 12s; animation-delay: 7s; }
+.data-particle:nth-child(9) { top: 5%; left: 50%; animation-duration: 20s; animation-delay: 8s; }
+.data-particle:nth-child(10) { top: 95%; left: 30%; animation-duration: 14s; animation-delay: 9s; }
+.data-particle:nth-child(11) { top: 25%; left: 70%; animation-duration: 16s; animation-delay: 10s; }
+.data-particle:nth-child(12) { top: 60%; left: 40%; animation-duration: 18s; animation-delay: 11s; }
