@@ -52,4 +52,26 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(section);
     });
+    
+    // Add subtle movement to data particles on mouse move
+    const container = document.querySelector('.container');
+    const dataParticles = document.querySelectorAll('.data-particle');
+    
+    if (container && dataParticles.length) {
+        container.addEventListener('mousemove', function(e) {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            dataParticles.forEach((particle, index) => {
+                // Calculate offset based on particle position and mouse position
+                const offsetX = (mouseX - 0.5) * 10;
+                const offsetY = (mouseY - 0.5) * 10;
+                const delay = index * 0.05;
+                
+                // Apply subtle transform with a delay based on index
+                particle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+                particle.style.transition = `transform 1s ease ${delay}s`;
+            });
+        });
+    }
 });
