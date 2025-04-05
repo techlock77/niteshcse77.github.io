@@ -1,28 +1,4 @@
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-    .nav {
-        flex-wrap: wrap;
-    }
-    
-    .clients-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .nav a {
-        padding: 6px 12px;
-        font-size: 0.9rem;
-    }
-    
-    .client-logo {
-        height: 100px;
-    }
-}:root {
+:root {
     --primary-color: #2563eb;
     --secondary-color: #10b981;
     --accent-color: #f97316;
@@ -463,5 +439,31 @@ input, textarea {
     100% {
         transform: translate(calc(-50vw + 50%), calc(-50vh + 50%)) rotate(360deg);
         opacity: 0;
+    }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .nav {
+        flex-wrap: wrap;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .nav a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .client-logo {
+        height: 100px;
     }
 }
