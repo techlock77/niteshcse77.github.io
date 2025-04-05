@@ -1,4 +1,3 @@
-
 // Email protection script
 function revealEmail(event) {
     event.preventDefault();
@@ -52,12 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.transform = 'translateY(20px)';
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(section);
-    });
-    
-    // Add random animation delay to each data bit
-    const dataBits = document.querySelectorAll('.data-bit');
-    dataBits.forEach(bit => {
-        const delay = Math.random() * 0.5;
-        bit.style.animationDelay = delay + 's';
     });
 });
