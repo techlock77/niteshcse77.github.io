@@ -1,33 +1,124 @@
-// Email protection script
-function revealEmail(event) {
+/**
+ * Nitesh's Data Mastery Website
+ * Main JavaScript functionality for animations, interactions, and captcha verification
+ */
+
+// ==========================================================================
+// Math Captcha Functions
+// ==========================================================================
+
+/**
+ * Generates a random captcha challenge with two numbers to add
+ */
+function generateCaptcha() {
+    // Generate two random numbers between 1 and 10
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    
+    // Update the captcha display
+    document.getElementById('captcha-num1').textContent = num1;
+    document.getElementById('captcha-num2').textContent = num2;
+    
+    // Store the correct answer in a data attribute
+    document.getElementById('captcha-form').setAttribute('data-answer', (num1 + num2).toString());
+}
+
+/**
+ * Verifies the entered captcha answer and reveals contact info if correct
+ * @param {Event} event - The form submission event
+ * @returns {boolean} - Always returns false to prevent form submission
+ */
+function verifyCaptcha(event) {
     event.preventDefault();
     
-    const visitorEmail = document.getElementById('visitor-email').value;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const userAnswer = document.getElementById('captcha-answer').value;
+    const correctAnswer = document.getElementById('captcha-form').getAttribute('data-answer');
     
-    if (emailRegex.test(visitorEmail)) {
-        // Valid email format
-        const myEncodedEmail = "niteshcse77@gmail.com"; // Replace with your actual email
-        
-        // Show the contact info section
-        document.getElementById('email-protection-form').style.display = 'none';
+    if (userAnswer === correctAnswer) {
+        // Correct answer - Show the contact info section
+        document.getElementById('captcha-form').style.display = 'none';
         document.getElementById('contact-info').style.display = 'block';
         
         // Set the email address
+        const myEmail = "niteshcse77@gmail.com"; // Replace with your actual email
         const emailLink = document.getElementById('my-email');
-        emailLink.href = "mailto:" + myEncodedEmail;
-        emailLink.textContent = myEncodedEmail;
+        emailLink.href = "mailto:" + myEmail;
+        emailLink.textContent = myEmail;
         
-        console.log("Email verification successful");
-        return false;
+        console.log("Captcha verification successful");
     } else {
-        alert("Please enter a valid email address");
-        return false;
+        // Wrong answer - Apply shake animation and reset
+        const captchaContainer = document.querySelector('.captcha-container');
+        
+        // Add shake animation
+        captchaContainer.classList.add('shake');
+        
+        // Remove the shake class after animation completes
+        setTimeout(() => {
+            captchaContainer.classList.remove('shake');
+        }, 500);
+        
+        // Generate a new captcha
+        generateCaptcha();
+        
+        // Clear the input field
+        document.getElementById('captcha-answer').value = '';
+        
+        // Show error message
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'error-message';
+        errorMsg.textContent = 'Incorrect answer, please try again';
+        errorMsg.style.color = 'red';
+        errorMsg.style.fontSize = '0.9rem';
+        errorMsg.style.marginTop = '5px';
+        errorMsg.style.textAlign = 'center';
+        
+        // Remove any existing error messages
+        const existingError = document.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+        
+        // Add the error message
+        document.querySelector('.captcha-container').after(errorMsg);
+        
+        // Focus on the input
+        document.getElementById('captcha-answer').focus();
     }
+    
+    return false;
 }
 
-// Add animation effects when scrolling
+// ==========================================================================
+// Page Animation & Interaction Functions
+// ==========================================================================
+
+/**
+ * Initializes page animations and interactions on DOM load
+ */
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the captcha if form exists
+    if (document.getElementById('captcha-form')) {
+        generateCaptcha();
+    }
+    
+    // Set up section reveal animations
+    initSectionAnimations();
+    
+    // Add particle movement on mouse move
+    initParticleMovement();
+    
+    // Create and insert dark mode toggle
+    createDarkModeToggle();
+    
+    // Initialize data visualizations
+    initDataVisualizations();
+});
+
+/**
+ * Sets up fade-in animations for page sections
+ */
+function initSectionAnimations() {
     // Get all sections
     const sections = document.querySelectorAll('section');
     
@@ -52,8 +143,12 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(section);
     });
-    
-    // Add subtle movement to data particles on mouse move
+}
+
+/**
+ * Initializes subtle movement for data particles on mouse move
+ */
+function initParticleMovement() {
     const container = document.querySelector('.container');
     const dataParticles = document.querySelectorAll('.data-particle');
     
@@ -74,8 +169,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    // Create and insert the dark mode toggle button
+}
+
+// ==========================================================================
+// Dark Mode Toggle Functions
+// ==========================================================================
+
+/**
+ * Creates and appends the dark mode toggle button
+ */
+function createDarkModeToggle() {
     const toggleButton = document.createElement('div');
     toggleButton.id = 'dark-mode-toggle';
     toggleButton.innerHTML = `
@@ -115,15 +218,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('dark-mode');
         updateDataTheme(true);
         
-        // Update toggle button text if dark mode is active
+        // Update toggle button text
         const toggleText = document.querySelector('.toggle-text');
         if (toggleText) {
             toggleText.textContent = 'Light Mode';
         }
     }
-});
+}
 
-// Function to toggle dark mode
+/**
+ * Toggles between light and dark mode
+ */
 function toggleDarkMode() {
     // Toggle the class
     document.body.classList.toggle('dark-mode');
@@ -148,7 +253,10 @@ function toggleDarkMode() {
     animateDataParticlesTransition();
 }
 
-// Function to update theme colors
+/**
+ * Updates theme colors for data visualizations
+ * @param {boolean} isDark - Whether dark mode is active
+ */
 function updateDataTheme(isDark) {
     // Set new theme colors
     const newColors = isDark ? 
@@ -186,11 +294,13 @@ function updateDataTheme(isDark) {
         themeColorMeta.setAttribute('content', isDark ? newColors.dark : newColors.primary);
     }
     
-    // Update data visualization elements if they exist
+    // Update data visualization elements
     updateDataVisualizations(isDark, newColors);
 }
 
-// Function to animate data particles during theme switch
+/**
+ * Animates data particles during theme transition
+ */
 function animateDataParticlesTransition() {
     const particles = document.querySelectorAll('.data-particle');
     
@@ -208,16 +318,17 @@ function animateDataParticlesTransition() {
         }, 1500 + (index * 50));
     });
     
-    // Add 10 temporary data burst particles
+    // Add temporary data burst particles
     addTemporaryDataBursts();
 }
 
-// Function to update data visualizations when theme changes
+/**
+ * Updates data visualizations when theme changes
+ * @param {boolean} isDark - Whether dark mode is active
+ * @param {Object} colors - The color scheme to use
+ */
 function updateDataVisualizations(isDark, colors) {
-    // This function can be expanded when data visualizations are added
-    // For now, it handles basic SVG elements if they exist
-    
-    // Example: Update SVG paths with new colors
+    // Update SVG paths with new colors
     const svgPaths = document.querySelectorAll('svg path');
     if (svgPaths.length) {
         svgPaths.forEach(path => {
@@ -230,12 +341,11 @@ function updateDataVisualizations(isDark, colors) {
             }
         });
     }
-    
-    // If you add charts or other visualizations in the future,
-    // you can update their themes here
 }
 
-// Function to add temporary data burst particles
+/**
+ * Adds temporary data burst particles for transition animation
+ */
 function addTemporaryDataBursts() {
     const container = document.querySelector('.container');
     const dataTerms = ['SQL', 'ETL', 'API', 'CSV', 'JSON', 'AWS', 'ML', 'AI', 'Spark', 'Data'];
@@ -269,3 +379,417 @@ function addTemporaryDataBursts() {
         });
     }
 }
+
+// ==========================================================================
+// Data Visualization Enhancement Functions
+// ==========================================================================
+
+/**
+ * Initializes all data-related visualizations and interactions
+ */
+function initDataVisualizations() {
+    console.log("Initializing data visualizations");
+    
+    // Setup interactive elements for the data visualization
+    setupDataNodeInteractions();
+    
+    // Add data metrics to the page
+    addDataMetrics();
+    
+    // Create animated data flow effects
+    createDataFlowEffects();
+}
+
+/**
+ * Sets up interactive behavior for data visualization nodes
+ */
+function setupDataNodeInteractions() {
+    // Get all nodes in the data visualization SVG
+    const dataNodes = document.querySelectorAll('.data-icon svg circle[cx][cy][r="10"]');
+    
+    if (dataNodes.length) {
+        dataNodes.forEach(node => {
+            // Add hover effect
+            node.addEventListener('mouseover', (e) => {
+                // Get the node's position
+                const cx = node.getAttribute('cx');
+                const cy = node.getAttribute('cy');
+                
+                // Highlight the node
+                node.setAttribute('r', '12');
+                node.style.filter = 'brightness(1.2)';
+                
+                // Highlight related paths
+                highlightRelatedPaths(cx, cy);
+                
+                // Show data tooltip near the node
+                showDataTooltip(e, node.nextElementSibling.textContent);
+            });
+            
+            // Remove hover effect
+            node.addEventListener('mouseout', () => {
+                node.setAttribute('r', '10');
+                node.style.filter = 'none';
+                
+                // Remove highlights from paths
+                resetRelatedPaths();
+                
+                // Hide tooltip
+                hideDataTooltip();
+            });
+        });
+    }
+}
+
+/**
+ * Highlights SVG paths related to a specific node
+ * @param {string} cx - The x coordinate of the node
+ * @param {string} cy - The y coordinate of the node
+ */
+function highlightRelatedPaths(cx, cy) {
+    const paths = document.querySelectorAll('.data-icon svg path');
+    
+    paths.forEach(path => {
+        const d = path.getAttribute('d');
+        
+        // Check if the path contains the coordinates of the node
+        if (d.includes(`${cx},${cy}`) || d.includes(`${cx} ${cy}`)) {
+            path.style.strokeWidth = '3';
+            path.style.filter = 'brightness(1.2)';
+            
+            // Speed up animation
+            const animate = path.querySelector('animate');
+            if (animate) {
+                animate.setAttribute('dur', '2s');
+            }
+        }
+    });
+}
+
+/**
+ * Resets highlighted paths to their default state
+ */
+function resetRelatedPaths() {
+    const paths = document.querySelectorAll('.data-icon svg path');
+    
+    paths.forEach(path => {
+        path.style.strokeWidth = '2';
+        path.style.filter = 'none';
+        
+        // Reset animation speed
+        const animate = path.querySelector('animate');
+        if (animate) {
+            animate.setAttribute('dur', '3s');
+        }
+    });
+}
+
+/**
+ * Displays a tooltip with information about a data node
+ * @param {Event} event - The mouseover event
+ * @param {string} text - The text content of the node
+ */
+function showDataTooltip(event, text) {
+    // Create or get tooltip element
+    let tooltip = document.getElementById('data-tooltip');
+    
+    if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.id = 'data-tooltip';
+        tooltip.style.position = 'absolute';
+        tooltip.style.padding = '8px 12px';
+        tooltip.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        tooltip.style.color = 'white';
+        tooltip.style.borderRadius = '4px';
+        tooltip.style.fontSize = '0.9rem';
+        tooltip.style.zIndex = '1000';
+        tooltip.style.pointerEvents = 'none';
+        tooltip.style.transition = 'opacity 0.2s ease';
+        document.body.appendChild(tooltip);
+    }
+    
+    // Set tooltip content based on node type
+    switch(text) {
+        case 'SQL':
+            tooltip.innerHTML = 'SQL Database: Source of raw data';
+            break;
+        case 'API':
+            tooltip.innerHTML = 'API Endpoints: Data integration interfaces';
+            break;
+        case 'ETL':
+            tooltip.innerHTML = 'ETL Processes: Transforming data for analysis';
+            break;
+        case 'ML':
+            tooltip.innerHTML = 'Machine Learning: Predictive analytics';
+            break;
+        default:
+            tooltip.innerHTML = text;
+    }
+    
+    // Position tooltip near cursor
+    const rect = event.target.getBoundingClientRect();
+    const scrollY = window.scrollY || window.pageYOffset;
+    
+    tooltip.style.left = `${rect.left + rect.width/2 - tooltip.offsetWidth/2}px`;
+    tooltip.style.top = `${rect.top + scrollY - 40}px`;
+    tooltip.style.opacity = '1';
+}
+
+/**
+ * Hides the data tooltip
+ */
+function hideDataTooltip() {
+    const tooltip = document.getElementById('data-tooltip');
+    if (tooltip) {
+        tooltip.style.opacity = '0';
+    }
+}
+
+/**
+ * Adds data metrics section to the page
+ */
+function addDataMetrics() {
+    // Check if the data metrics section already exists
+    if (document.querySelector('.data-metrics')) {
+        return;
+    }
+    
+    // Create metrics container
+    const metricsContainer = document.createElement('div');
+    metricsContainer.className = 'data-metrics';
+    
+    // Define metrics data
+    const metrics = [
+        { value: '99.9%', label: 'Data Uptime' },
+        { value: '500TB+', label: 'Data Processed' },
+        { value: '45ms', label: 'Avg. Query Time' },
+        { value: '150+', label: 'ETL Pipelines' }
+    ];
+    
+    // Create each metric element
+    metrics.forEach(metric => {
+        const metricElement = document.createElement('div');
+        metricElement.className = 'metric';
+        
+        const valueElement = document.createElement('div');
+        valueElement.className = 'metric-value';
+        valueElement.textContent = metric.value;
+        
+        const labelElement = document.createElement('div');
+        labelElement.className = 'metric-label';
+        labelElement.textContent = metric.label;
+        
+        metricElement.appendChild(valueElement);
+        metricElement.appendChild(labelElement);
+        metricsContainer.appendChild(metricElement);
+        
+        // Add counter animation to numbers
+        animateCounterValue(valueElement);
+    });
+    
+    // Find where to insert the metrics
+    const aboutSection = document.getElementById('about-me');
+    if (aboutSection) {
+        const skillsSection = aboutSection.querySelector('.skills');
+        if (skillsSection) {
+            aboutSection.insertBefore(metricsContainer, skillsSection);
+        } else {
+            aboutSection.appendChild(metricsContainer);
+        }
+    }
+}
+
+/**
+ * Animates counter values with a counting effect
+ * @param {HTMLElement} element - The element containing the value to animate
+ */
+function animateCounterValue(element) {
+    // Only animate number portions of the text
+    const originalText = element.textContent;
+    const numericPart = originalText.match(/[\d.]+/);
+    
+    if (numericPart) {
+        // Extract the numeric value and unit
+        const numValue = parseFloat(numericPart[0]);
+        const unit = originalText.replace(numericPart[0], '');
+        
+        // Start from a lower value
+        let startValue = 0;
+        if (numValue > 100) {
+            startValue = Math.floor(numValue * 0.7);
+        } else if (numValue > 10) {
+            startValue = Math.floor(numValue * 0.5);
+        }
+        
+        // Setup Intersection Observer to start animation when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate the number
+                    let current = startValue;
+                    const increment = (numValue - startValue) / 40; // 40 steps for the animation
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= numValue) {
+                            clearInterval(timer);
+                            current = numValue;
+                            element.textContent = numValue.toLocaleString() + unit;
+                        } else {
+                            element.textContent = Math.round(current).toLocaleString() + unit;
+                        }
+                    }, 30);
+                    
+                    // Stop observing after animation starts
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(element);
+    }
+}
+
+/**
+ * Creates data flow effects between page sections
+ */
+function createDataFlowEffects() {
+    // Add data flow animation between sections
+    animateSectionConnections();
+    
+    // Create a data burst effect on the central hub
+    setupDataBurstEffect();
+}
+
+/**
+ * Animates connections between page sections
+ */
+function animateSectionConnections() {
+    const sections = document.querySelectorAll('section');
+    
+    // Check if we already have connection elements
+    if (document.querySelector('.section-connection')) {
+        return;
+    }
+    
+    // Create connections between adjacent sections
+    for (let i = 0; i < sections.length - 1; i++) {
+        const currentSection = sections[i];
+        const nextSection = sections[i + 1];
+        
+        // Get section positions
+        const currentRect = currentSection.getBoundingClientRect();
+        const nextRect = nextSection.getBoundingClientRect();
+        
+        // Create connection element
+        const connection = document.createElement('div');
+        connection.className = 'section-connection';
+        connection.style.position = 'absolute';
+        connection.style.width = '2px';
+        connection.style.height = `${nextRect.top - (currentRect.top + currentRect.height)}px`;
+        connection.style.backgroundColor = 'var(--primary-color)';
+        connection.style.left = '50%';
+        connection.style.top = `${currentRect.top + currentRect.height}px`;
+        connection.style.transform = 'translateX(-50%)';
+        connection.style.opacity = '0.3';
+        connection.style.zIndex = '1';
+        
+        // Add flowing data particle effect
+        const particle = document.createElement('div');
+        particle.className = 'flow-particle';
+        particle.style.position = 'absolute';
+        particle.style.width = '6px';
+        particle.style.height = '6px';
+        particle.style.borderRadius = '50%';
+        particle.style.backgroundColor = 'var(--primary-color)';
+        particle.style.left = '50%';
+        particle.style.transform = 'translateX(-50%)';
+        particle.style.animation = `flowDown 3s ease-in infinite`;
+        
+        // Add animation keyframe for the flowing particle
+        if (!document.getElementById('flow-animation')) {
+            const style = document.createElement('style');
+            style.id = 'flow-animation';
+            style.innerHTML = `
+                @keyframes flowDown {
+                    0% { top: 0; opacity: 0; }
+                    20% { opacity: 1; }
+                    80% { opacity: 1; }
+                    100% { top: 100%; opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        connection.appendChild(particle);
+        document.body.appendChild(connection);
+    }
+}
+
+/**
+ * Sets up the data burst effect on the central hub
+ */
+function setupDataBurstEffect() {
+    const centralHub = document.querySelector('.data-icon svg circle[cx="100"][cy="100"][r="25"]');
+    
+    if (centralHub) {
+        centralHub.addEventListener('click', createDataBurst);
+    }
+}
+
+/**
+ * Creates a burst effect of data-related terms
+ */
+function createDataBurst() {
+    // Create data terms to burst out
+    const dataTerms = ['SQL', 'ETL', 'API', 'JSON', 'CSV', 'ML', 'AI', 'Spark'];
+    const container = document.querySelector('.data-icon');
+    
+    if (!container) return;
+    
+    // Get center position
+    const rect = container.getBoundingClientRect();
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Create bursting particles
+    for (let i = 0; i < 8; i++) {
+        const particle = document.createElement('span');
+        particle.className = 'data-burst';
+        particle.textContent = dataTerms[i];
+        particle.style.left = `${centerX}px`;
+        particle.style.top = `${centerY}px`;
+        
+        // Add random direction
+        const angle = (i * 45) + (Math.random() * 20 - 10);
+        const distance = 50 + Math.random() * 30;
+        const x = Math.cos(angle * Math.PI / 180) * distance;
+        const y = Math.sin(angle * Math.PI / 180) * distance;
+        
+        // Set animation
+        particle.style.animation = `dataBurst 1.5s forwards`;
+        particle.style.setProperty('--random-x', x);
+        particle.style.setProperty('--random-y', y);
+        
+        container.appendChild(particle);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+            particle.remove();
+        }, 1500);
+    }
+}
+
+// Initialize data visualizations when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize on page load
+    initDataVisualizations();
+    
+    // Re-initialize on theme toggle to update colors
+    const themeToggle = document.getElementById('dark-mode-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            // Short delay to let theme change complete
+            setTimeout(initDataVisualizations, 300);
+        });
+    }
+});

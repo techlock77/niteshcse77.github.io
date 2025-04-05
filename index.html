@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="container">
+        <!-- Floating data particles for background effect -->
         <div class="floating-data-particles">
             <span class="data-particle">01</span>
             <span class="data-particle">10</span>
@@ -24,11 +25,14 @@
             <span class="data-particle">AI</span>
             <span class="data-particle">110</span>
         </div>
+        
+        <!-- Header Section -->
         <header>
             <h1>Welcome to Nitesh's Data Mastery</h1>
             <p>Transforming data into insights and solutions</p>
         </header>
         
+        <!-- Navigation Bar -->
         <nav class="nav">
             <a href="#">Home</a>
             <a href="#about-me">About</a>
@@ -37,14 +41,107 @@
             <a href="#contact">Contact</a>
         </nav>
         
+        <!-- Data Visualization Icon -->
         <div class="data-icon">
-            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 13H3V21H10V13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M21 8H14V21H21V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M21 3H3V8H21V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Circle -->
+                <circle cx="100" cy="100" r="90" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-dasharray="5,5" opacity="0.3">
+                    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="60s" repeatCount="indefinite" />
+                </circle>
+            
+                <!-- Data Flow Lines -->
+                <path d="M30,100 C50,30 150,30 170,100" stroke="var(--secondary-color)" stroke-width="2" fill="none" stroke-dasharray="565" stroke-dashoffset="565">
+                    <animate attributeName="stroke-dashoffset" from="565" to="0" dur="3s" repeatCount="indefinite" />
+                </path>
+                
+                <path d="M170,100 C150,170 50,170 30,100" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-dasharray="565" stroke-dashoffset="565">
+                    <animate attributeName="stroke-dashoffset" from="565" to="0" dur="3s" begin="1.5s" repeatCount="indefinite" />
+                </path>
+            
+                <!-- Central Data Hub -->
+                <circle cx="100" cy="100" r="25" fill="url(#hubGradient)">
+                    <animate attributeName="r" values="25;27;25" dur="3s" repeatCount="indefinite" />
+                </circle>
+            
+                <!-- Data Nodes -->
+                <g>
+                    <!-- Node 1: SQL -->
+                    <circle cx="30" cy="100" r="10" fill="var(--primary-color)">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="30" y="100" text-anchor="middle" fill="white" font-size="8" font-family="monospace" dominant-baseline="middle">SQL</text>
+                    
+                    <!-- Node 2: API -->
+                    <circle cx="170" cy="100" r="10" fill="var(--primary-color)">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.5s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="170" y="100" text-anchor="middle" fill="white" font-size="8" font-family="monospace" dominant-baseline="middle">API</text>
+                    
+                    <!-- Node 3: ETL -->
+                    <circle cx="100" cy="30" r="10" fill="var(--secondary-color)">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="100" y="30" text-anchor="middle" fill="white" font-size="8" font-family="monospace" dominant-baseline="middle">ETL</text>
+                    
+                    <!-- Node 4: ML -->
+                    <circle cx="100" cy="170" r="10" fill="var(--accent-color)">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1.5s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="100" y="170" text-anchor="middle" fill="white" font-size="8" font-family="monospace" dominant-baseline="middle">ML</text>
+                </g>
+            
+                <!-- Data Packets -->
+                <circle cx="30" cy="100" r="3" fill="white">
+                    <animate attributeName="cx" values="30;100" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="100;100" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                
+                <circle cx="170" cy="100" r="3" fill="white">
+                    <animate attributeName="cx" values="170;100" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="100;100" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                
+                <circle cx="100" cy="30" r="3" fill="white">
+                    <animate attributeName="cx" values="100;100" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="30;100" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                
+                <circle cx="100" cy="170" r="3" fill="white">
+                    <animate attributeName="cx" values="100;100" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="170;100" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+            
+                <!-- Binary data around the circle -->
+                <g font-family="monospace" font-size="7" fill="var(--primary-color)" opacity="0.7">
+                    <text x="55" y="50">01001</text>
+                    <text x="140" y="50" opacity="0.5">10110</text>
+                    <text x="40" y="140" opacity="0.6">11010</text>
+                    <text x="130" y="140" opacity="0.4">00101</text>
+                    
+                    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="30s" repeatCount="indefinite" />
+                </g>
+                
+                <!-- Center Data Text -->
+                <text x="100" y="95" text-anchor="middle" fill="white" font-size="12" font-family="monospace" font-weight="bold">DATA</text>
+                <text x="100" y="110" text-anchor="middle" fill="white" font-size="8" font-family="monospace">PIPELINE</text>
+            
+                <!-- Definitions for gradients and filters -->
+                <defs>
+                    <linearGradient id="hubGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="var(--primary-color)" />
+                        <stop offset="100%" stop-color="var(--secondary-color)" />
+                        <animate attributeName="x1" values="0%;100%;0%" dur="5s" repeatCount="indefinite" />
+                        <animate attributeName="y1" values="0%;100%;0%" dur="5s" repeatCount="indefinite" />
+                    </linearGradient>
+                </defs>
             </svg>
         </div>
 
+        <!-- About Me Section -->
         <section id="about-me">
             <h2>About Me</h2>
             <p>Hello! I'm Nitesh, a passionate Data Engineer specializing in building scalable data infrastructure and efficient data pipelines. I design and implement solutions that transform raw data into valuable business insights. My expertise includes database systems, ETL processes, big data technologies, and cloud platforms.</p>
@@ -65,6 +162,7 @@
             </div>
         </section>
         
+        <!-- Clients Section -->
         <section id="clients">
             <h2>Clients I've Worked With</h2>
             <div class="clients-grid">
@@ -119,15 +217,20 @@
             </div>
         </section>
         
+        <!-- Contact Section with Math Captcha -->
         <section id="contact">
             <h2>Contact</h2>
-            <div id="email-protection-form">
-                <p>To view my contact information, please verify you're human by entering your email address:</p>
-                <form id="verification-form" onsubmit="return revealEmail(event)">
-                    <input type="email" id="visitor-email" placeholder="Your email address" required>
+            <div id="captcha-form">
+                <p>To view my contact information, please solve this simple math problem:</p>
+                <form id="verification-form" onsubmit="return verifyCaptcha(event)">
+                    <div class="captcha-container">
+                        <span id="captcha-num1">5</span> + 
+                        <span id="captcha-num2">3</span> = 
+                        <input type="number" id="captcha-answer" placeholder="Your answer" required>
+                    </div>
                     <button type="submit">Verify & Reveal Contact</button>
                 </form>
-                <p class="form-note">I respect your privacy. Your email will not be stored or used for marketing.</p>
+                <p class="form-note">This helps prevent automated bots from accessing my contact information.</p>
             </div>
             
             <div id="contact-info" style="display: none;">
@@ -139,6 +242,7 @@
             </div>
         </section>
         
+        <!-- Footer -->
         <footer>
             <p>&copy; 2025 Nitesh's Data Mastery. All rights reserved.</p>
             <div class="footer-pattern"></div>
