@@ -30,7 +30,7 @@ This website is hosted using GitHub Pages, a free hosting service that allows me
 
 ## How to Navigate
 
-The main website can be viewed at: [https://yourusername.github.io](https://yourusername.github.io)
+The main website can be viewed at: https://techlock77.github.io/
 
 ## Future Updates
 
@@ -43,7 +43,7 @@ I plan to regularly update this portfolio with new projects showcasing:
 
 ## Contact
 
-Feel free to reach out to me for collaborations or questions about my data science work.
+Feel free to reach out to me for collaborations or questions about my data engineering work.
 
 ---
 
