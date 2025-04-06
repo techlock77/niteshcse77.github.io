@@ -347,12 +347,43 @@
                     <p class="form-note">This helps prevent automated bots from accessing my contact information.</p>
                 </div>
                 
-                <div id="contact-info" style="display: none;">
+<div id="contact-info" style="display: none;">
                     <p>You can reach me at: <a href="#" id="my-email"></a></p>
                     <p>Follow me on: 
                         <a href="https://github.com/techlock77">GitHub</a> | 
                         <a href="https://www.linkedin.com/in/niteshcse77/">LinkedIn</a>
                     </p>
+                    <div class="resume-link-container">
+                        <p>Interested in my professional background?</p>
+                        <a href="#" id="resume-link" class="resume-button">View My Resume</a>
+                    </div>
+                </div>
+                
+                <!-- Resume Access Modal -->
+                <div id="resume-modal" class="resume-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Resume Access</h3>
+                            <button id="modal-close" class="modal-close">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Please enter the password to view my resume.</p>
+                            <form id="password-form" class="password-form">
+                                <div class="form-group">
+                                    <label for="password-input">Password</label>
+                                    <input type="password" id="password-input" class="password-input" placeholder="Enter password" required>
+                                    <div id="password-strength" class="password-strength">
+                                        <div class="strength-segment"></div>
+                                        <div class="strength-segment"></div>
+                                        <div class="strength-segment"></div>
+                                    </div>
+                                    <p class="password-requirements">Password must contain at least 1 capital letter, 1 lowercase letter, and 1 special character.</p>
+                                </div>
+                                <button type="submit" class="password-submit">Access Resume</button>
+                                <div id="error-message" class="error-message"></div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </section>
             
@@ -389,6 +420,7 @@
     <script src="js/core.js"></script>
 	<script src="js/particle-fix.js"></script>
     <script src="js/visitor-counter.js"></script>
+	<script src="js/resume-access.js"></script>
 </body>
 </html>
 </body>
