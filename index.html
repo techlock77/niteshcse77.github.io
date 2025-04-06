@@ -16,6 +16,7 @@
             <div class="scroll-sections">
                 <div class="scroll-section" data-section="home">Home</div>
                 <div class="scroll-section" data-section="about-me">About</div>
+				<div class="scroll-section" data-section="skills">Skills</div>
                 <div class="scroll-section" data-section="clients">Projects/Clients</div>
                 <div class="scroll-section" data-section="contact">Contact</div>
             </div>
@@ -54,6 +55,7 @@
             <header id="home">
                 <h1>Welcome to Nitesh's Data Mastery</h1>
                 <p>Transforming data into insights and solutions</p>
+				<p>Enterprise Data Engineering Solutions Architect</p>
             </header>
             
             <!-- Navigation Bar -->
@@ -69,8 +71,8 @@
             <div class="data-icon">
                 <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <!-- Background Circle -->
-                    <circle cx="100" cy="100" r="90" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-dasharray="5,5" opacity="0.3">
-                        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="60s" repeatCount="indefinite" />
+                    <circle cx="100" cy="100" r="95" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-dasharray="5,5" opacity="0.3">
+                        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="45s" repeatCount="indefinite" />
                     </circle>
                 
                     <!-- Data Flow Lines -->
@@ -141,17 +143,17 @@
                 
                     <!-- Binary data around the circle -->
                     <g font-family="monospace" font-size="7" fill="var(--primary-color)" opacity="0.7">
-                        <text x="55" y="50">01001</text>
-                        <text x="140" y="50" opacity="0.5">10110</text>
-                        <text x="40" y="140" opacity="0.6">11010</text>
-                        <text x="130" y="140" opacity="0.4">00101</text>
+                        <text x="55" y="50" >DATABRICKS</text>
+                        <text x="140" y="50" opacity="0.7">AWS</text>
+                        <text x="40" y="140" opacity="0.6">SNOWFLAKE</text>
+                        <text x="130" y="140" opacity="0.4">AZURE</text>
                         
                         <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="30s" repeatCount="indefinite" />
                     </g>
                     
                     <!-- Center Data Text -->
                     <text x="100" y="95" text-anchor="middle" fill="white" font-size="12" font-family="monospace" font-weight="bold">DATA</text>
-                    <text x="100" y="110" text-anchor="middle" fill="white" font-size="8" font-family="monospace">PIPELINE</text>
+                    <text x="100" y="110" text-anchor="middle" fill="white" font-size="8" font-family="monospace" font-weight="bold">ENGINEERING</text>
                 
                     <!-- Definitions for gradients and filters -->
                     <defs>
@@ -175,23 +177,105 @@
                 <div id="data-metrics" class="data-metrics">
                     <!-- Metrics will be populated by JavaScript -->
                 </div>
-                
-                <div class="skills">
-                    <div class="skill-tag">Apache Spark</div>
-                    <div class="skill-tag">AWS</div>
-                    <div class="skill-tag">Azure</div>
-                    <div class="skill-tag">Kubernetes</div>
-                    <div class="skill-tag">PostgreSQL</div>
-                    <div class="skill-tag">MongoDB</div>
-                    <div class="skill-tag">Python</div>
-                    <div class="skill-tag">Scala</div>
-                    <div class="skill-tag">Airflow</div>
-                    <div class="skill-tag">Kafka</div>
-                    <div class="skill-tag">Docker</div>
-                    <div class="skill-tag">Snowflake</div>
-                </div>
             </section>
-            
+			
+			<!-- Skills Section -->
+			<section id="skills">
+				<h2>Technical Skills</h2>
+				<p>My expertise spans across a wide range of data engineering technologies and methodologies:</p>
+				
+				<div class="skills-grid">
+					<div class="skill-category">
+						<h3>Programming</h3>
+						<div class="skill-items">
+							<span class="skill-tag">Python</span>
+							<span class="skill-tag">Advanced SQL</span>
+							<span class="skill-tag">PySpark</span>
+							<span class="skill-tag">API Development</span>
+							<span class="skill-tag">Snowpark</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h3>Data Platforms</h3>
+						<div class="skill-items">
+							<span class="skill-tag">Hadoop</span>
+							<span class="skill-tag">Databricks</span>
+							<span class="skill-tag">Snowflake</span>
+							<span class="skill-tag">Redshift</span>
+							<span class="skill-tag">Oracle</span>
+							<span class="skill-tag">SQL Server</span>
+							<span class="skill-tag">MySQL</span>
+							<span class="skill-tag">Netezza</span>
+							<span class="skill-tag">MongoDB</span>
+							<span class="skill-tag">Postgres</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h3>Open Table Formats</h3>
+						<div class="skill-items">
+							<span class="skill-tag">Iceberg</span>
+							<span class="skill-tag">Delta</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h3>Cloud Platforms</h3>
+						<div class="skill-items">
+							<span class="skill-tag">AWS (SageMaker, EMR, Lambda)</span>
+							<span class="skill-tag">Kafka-Kinesis</span>
+							<span class="skill-tag">Azure</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h3>ETL Tools</h3>
+						<div class="skill-items">
+							<span class="skill-tag">Informatica</span>
+							<span class="skill-tag">DBT</span>
+							<span class="skill-tag">SSIS</span>
+							<span class="skill-tag">Glue</span>
+							<span class="skill-tag">DMS</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h3>ML Frameworks</h3>
+						<div class="skill-items">
+							<span class="skill-tag">Scikit-Learn</span>
+							<span class="skill-tag">XGBoost</span>
+							<span class="skill-tag">TensorFlow</span>
+							<span class="skill-tag">PyTorch</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h3>Tools</h3>
+						<div class="skill-items">
+							<span class="skill-tag">Docker</span>
+							<span class="skill-tag">Kubernetes</span>
+							<span class="skill-tag">Git</span>
+							<span class="skill-tag">Jupyter Notebooks</span>
+							<span class="skill-tag">MLflow</span>
+							<span class="skill-tag">Airflow</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h3>Methodologies</h3>
+						<div class="skill-items">
+							<span class="skill-tag">Agile</span>
+							<span class="skill-tag">DevOps</span>
+							<span class="skill-tag">CI/CD</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
+
             <!-- Clients Section -->
             <section id="clients">
                 <h2>Projects & Clients</h2>
@@ -206,18 +290,10 @@
                     </div>
                     <div class="client">
                         <div class="client-logo">
-                            <div class="logo-img logo-windhaven" title="Windhaven Insurance logo"></div>
+                            <div class="logo-img logo-amazon" title="Amazon logo"></div>
                         </div>
                         <div class="client-info">
-                            <p>Real-time analytics platform</p>
-                        </div>
-                    </div>
-                    <div class="client">
-                        <div class="client-logo">
-                            <div class="logo-img logo-ryder" title="Ryder logo"></div>
-                        </div>
-                        <div class="client-info">
-                            <p>Fleet management data integration</p>
+                            <p>Supply chain optimization</p>
                         </div>
                     </div>
                     <div class="client">
@@ -230,10 +306,10 @@
                     </div>
                     <div class="client">
                         <div class="client-logo">
-                            <div class="logo-img logo-amazon" title="Amazon logo"></div>
+                            <div class="logo-img logo-ryder" title="Ryder logo"></div>
                         </div>
                         <div class="client-info">
-                            <p>Supply chain optimization</p>
+                            <p>Fleet management data integration</p>
                         </div>
                     </div>
                     <div class="client">
@@ -242,6 +318,14 @@
                         </div>
                         <div class="client-info">
                             <p>Customer analytics solution</p>
+                        </div>
+                    </div>
+                    <div class="client">
+                        <div class="client-logo">
+                            <div class="logo-img logo-windhaven" title="Windhaven Insurance logo"></div>
+                        </div>
+                        <div class="client-info">
+                            <p>Real-time analytics platform</p>
                         </div>
                     </div>
                 </div>
@@ -284,6 +368,8 @@
     <script src="js/metrics.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/scroll.js"></script>
+	<script src="js/skills.js"></script>
     <script src="js/core.js"></script>
+	<script src="js/particle-fix.js"></script>
 </body>
 </html>

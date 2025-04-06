@@ -76,4 +76,42 @@ function initScrollIndicator() {
     
     // Initial update
     updateScrollIndicator();
+    
+    // Initialize intersection observer for metrics
+    initMetricsObserver();
+}
+
+/**
+ * Sets up an IntersectionObserver to refresh metrics when scrolled into view
+ */
+function initMetricsObserver() {
+    const metricsSection = document.getElementById('data-metrics');
+    
+    if (metricsSection && typeof window.initDataMetrics === 'function') {
+        // Create observer options
+        const options = {
+            root: null, // use viewport
+            rootMargin: '0px',
+            threshold: 0.3 // trigger when 30% visible
+        };
+        
+        // Create observer instance
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log('Metrics section in view, refreshing metrics...');
+                    // Refresh metrics when in view
+                    window.initDataMetrics();
+                    
+                    // Optional: Disconnect after first view to prevent multiple refreshes
+                    // observer.disconnect();
+                }
+            });
+        }, options);
+        
+        // Start observing the metrics section
+        observer.observe(metricsSection);
+    } else {
+        console.warn('Could not initialize metrics observer: section not found or function not available');
+    }
 }

@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
         createDarkModeToggle();
     }
     
+    // Initialize logo flip animations
+    initLogoFlipAnimations();
+    
     console.log("Website initialization complete");
 });
 
@@ -110,6 +113,90 @@ function initDataVisualizations() {
     
     // Create animated data flow effects
     createDataFlowEffects();
+}
+
+/**
+ * Initializes the flip animation for client logos
+ */
+function initLogoFlipAnimations() {
+  // Get the clients section
+  const clientsSection = document.getElementById('clients');
+  if (!clientsSection) return;
+  
+  // Get all logo elements
+  const logoElements = document.querySelectorAll('.logo-img');
+  if (!logoElements.length) return;
+  
+  // Create an observer for the clients section
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      // Start the logo flip animations when section is visible
+      animateLogos(logoElements);
+      
+      // Disconnect the observer after triggering animations
+      observer.disconnect();
+    }
+  }, {
+    threshold: 0.2 // Trigger when 20% of the section is visible
+  });
+  
+  // Observe the clients section
+  observer.observe(clientsSection);
+}
+
+function animateLogos(logos) {
+  // Animate each logo with a staggered delay
+  logos.forEach((logo, index) => {
+    setTimeout(() => {
+      // Add animation class
+      logo.classList.add('animated');
+      
+      // Add flipped class for non-animated fallback
+      setTimeout(() => {
+        logo.classList.add('flipped');
+      }, 50);
+    }, index * 200); // 200ms stagger between each logo
+  });
+}
+
+/**
+ * Plays a subtle flip sound effect
+ * Can be enabled/disabled based on user preference
+ */
+function playFlipSound() {
+    // Check if sound effects are enabled (could be a user preference)
+    const soundEnabled = localStorage.getItem('soundEffects') !== 'disabled';
+    
+    if (soundEnabled && window.AudioContext) {
+        try {
+            // Create audio context
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            
+            // Create oscillator for a short blip sound
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            // Connect nodes
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            // Configure sound
+            oscillator.type = 'sine';
+            oscillator.frequency.value = 1800 + Math.random() * 400;
+            gainNode.gain.value = 0.1;
+            
+            // Envelope
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.1, audioCtx.currentTime + 0.01);
+            gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1);
+            
+            // Play and stop
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.1);
+        } catch (e) {
+            console.log('Audio context not supported or other audio error');
+        }
+    }
 }
 
 /**

@@ -16,27 +16,28 @@
     background-image: url("https://purepng.com/public/uploads/large/purepng.com-3m-logologobrand-logoiconslogos-251519940406sci7r.png");
 }
 
-/* Windhaven Insurance Logo */
-.logo-windhaven {
-    background-image: url("https://th.bing.com/th/id/OIP.FvgesrOfQCB1hB_HDfLObAHaBe?rs=1&pid=ImgDetMain");
-}
-
-/* Ryder Logo */
-.logo-ryder {
-    background-image: url("https://www.liblogo.com/img-logo/ry5445r980-ryder-logo-ryder-logo-delivery--com.png");
+/* Amazon Logo */
+.logo-amazon {
+    background-image: url("https://logo-base.com/logo/amazon-logo.png");
 }
 
 /* Accenture Logo */
 .logo-accenture {
-    background-image: url("https://logos-world.net/wp-content/uploads/2020/07/Accenture-Symbol-700x394.png");
+    background-image: url("https://www.clutch.com/wp-content/uploads/2021/12/Accenture-logo.png");
 }
 
-/* Amazon Logo */
-.logo-amazon {
-    background-image: url("https://logos-world.net/wp-content/uploads/2020/04/Amazon-Emblem.jpg");
-}
 
 /* Hyatt Logo */
 .logo-hyatt {
     background-image: url("https://3.bp.blogspot.com/--5qtowp0wLI/U5GtuTXVgtI/AAAAAAAACj0/eHB_1D_zaZ8/s1600/Logo+Hyatt_Hotels.png");
+}
+
+/* Ryder Logo */
+.logo-ryder {
+    background-image: url("https://commonmedia.asicentral.com/2280000/2281754/2C-logo---Ryder-EB---Web.gif");
+}
+
+/* Windhaven Insurance Logo */
+.logo-windhaven {
+    background-image: url("https://th.bing.com/th/id/OIP.FvgesrOfQCB1hB_HDfLObAHaBe?rs=1&pid=ImgDetMain");
 }

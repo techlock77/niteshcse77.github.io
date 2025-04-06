@@ -7,21 +7,30 @@
 // Data Metrics Functions
 // ==========================================================================
 
+// Keep track of whether metrics are currently animating
+let metricsAnimating = false;
+
 /**
  * Initialize the data metrics display
  */
 function initDataMetrics() {
     console.log("Initializing data metrics...");
     
+    // If metrics are currently animating, don't restart
+    if (metricsAnimating) {
+        console.log("Metrics animation already in progress");
+        return;
+    }
+    
     // Define metrics data with descriptions for tooltips
     const metrics = [
         { 
-            value: '99.9%', 
-            label: 'Data Uptime', 
+            value: '8', 
+            label: 'Data Migration Projects', 
             description: 'High availability across all data systems, ensuring near-continuous access to critical information.'
         },
         { 
-            value: '500TB+', 
+            value: '5000TB+', 
             label: 'Data Processed', 
             description: 'Total volume of data transformed and analyzed across all enterprise projects.'
         },
@@ -31,8 +40,13 @@ function initDataMetrics() {
             description: 'Optimized query performance enables near real-time data access and analysis.'
         },
         { 
-            value: '150+', 
-            label: 'ETL Pipelines', 
+            value: '40% Reduction', 
+            label: 'Data Processing Time', 
+            description: 'Custom data integration workflows designed and implemented for various business needs.'
+        },
+        { 
+            value: 'BIG5', 
+            label: 'Consulting Experience', 
             description: 'Custom data integration workflows designed and implemented for various business needs.'
         }
     ];
@@ -48,43 +62,66 @@ function initDataMetrics() {
     // Clear any existing content
     metricsContainer.innerHTML = '';
     
-    // Generate metric elements
-    metrics.forEach(metric => {
-        const metricElement = document.createElement('div');
-        metricElement.className = 'metric';
-        
-        const valueElement = document.createElement('div');
-        valueElement.className = 'metric-value';
-        valueElement.textContent = metric.value;
-        
-        const labelElement = document.createElement('div');
-        labelElement.className = 'metric-label';
-        labelElement.textContent = metric.label;
-        
-        // Add tooltip functionality
-        metricElement.setAttribute('title', metric.description);
-        
-        metricElement.appendChild(valueElement);
-        metricElement.appendChild(labelElement);
-        
-        // Add hover effect
-        metricElement.addEventListener('mouseenter', function() {
-            valueElement.style.animation = 'pulse 1s infinite';
-        });
-        
-        metricElement.addEventListener('mouseleave', function() {
-            valueElement.style.animation = 'none';
-        });
-        
-        metricsContainer.appendChild(metricElement);
-        
-        // Add animated counter effect for numeric values
-        if (metric.value.match(/[\d.]+/)) {
-            animateMetricValue(valueElement, metric.value);
-        }
+    // Set animation in progress flag
+    metricsAnimating = true;
+    
+    // Generate metric elements with a slight delay between each for a nice effect
+    metrics.forEach((metric, index) => {
+        setTimeout(() => {
+            const metricElement = document.createElement('div');
+            metricElement.className = 'metric';
+            
+            const valueElement = document.createElement('div');
+            valueElement.className = 'metric-value';
+            valueElement.textContent = '0'; // Start at 0
+            
+            const labelElement = document.createElement('div');
+            labelElement.className = 'metric-label';
+            labelElement.textContent = metric.label;
+            
+            // Add tooltip functionality
+            metricElement.setAttribute('title', metric.description);
+            
+            metricElement.appendChild(valueElement);
+            metricElement.appendChild(labelElement);
+            
+            // Add hover effect
+            metricElement.addEventListener('mouseenter', function() {
+                valueElement.style.animation = 'pulse 1s infinite';
+            });
+            
+            metricElement.addEventListener('mouseleave', function() {
+                valueElement.style.animation = 'none';
+            });
+            
+            // Add to container with fade-in effect
+            metricElement.style.opacity = '0';
+            metricElement.style.transform = 'translateY(10px)';
+            metricElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            metricsContainer.appendChild(metricElement);
+            
+            // Trigger fade-in
+            setTimeout(() => {
+                metricElement.style.opacity = '1';
+                metricElement.style.transform = 'translateY(0)';
+            }, 50);
+            
+            // Add animated counter effect for numeric values
+            if (metric.value.match(/[\d.]+/)) {
+                animateMetricValue(valueElement, metric.value);
+            }
+            
+            // If this is the last metric, clear the animation flag when done
+            if (index === metrics.length - 1) {
+                setTimeout(() => {
+                    metricsAnimating = false;
+                }, 2000); // After animation completes
+            }
+        }, index * 150); // Stagger the appearance of each metric
     });
     
-    console.log("Data metrics initialized successfully");
+    console.log("Data metrics initialization started");
 }
 
 /**
@@ -126,8 +163,14 @@ function animateMetricValue(element, finalValue) {
 
 // Initialize metrics when document is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Wait a short time to ensure other elements are initialized
-    setTimeout(initDataMetrics, 100);
+    // Initial metrics population will be handled by the scroll observer
+    // but we'll set a fallback timer just in case
+    setTimeout(() => {
+        // Only initialize if not already done by scroll observer
+        if (!metricsAnimating && document.getElementById('data-metrics').children.length === 0) {
+            initDataMetrics();
+        }
+    }, 1000);
 });
 
 // Make function globally accessible

@@ -330,36 +330,51 @@
 /* ==========================================================================
    Improved Client Logo Styles 
    ========================================================================== */
-   .client-logo {
-    height: 150px; /* Increased height for better logo display */
+.client-logo {
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px;
     background-color: #f8f8f8;
     border-bottom: 1px solid #eee;
-    overflow: hidden; /* Prevent logo overflow */
+    overflow: hidden;
+    perspective: 1000px; /* For 3D flip effect */
 }
 
 .client-logo .logo-img {
     max-width: 100%;
-    max-height: 120px; /* Ensure consistent height */
+    max-height: 120px;
+    width: 160px; /* Fixed width for better alignment */
+    height: 100px; /* Fixed height for better alignment */
     object-fit: contain;
     display: block;
     margin: 0 auto;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1)); /* Subtle shadow */
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotateX(90deg); /* Start rotated out of view */
+    opacity: 0;
+    backface-visibility: hidden;
+}
+
+.client-logo .logo-img.flipped {
+    transform: rotateX(0deg); /* Final position */
+    opacity: 1;
 }
 
 /* Dark mode adjustments for logo containers */
 .dark-mode .client-logo {
-    background-color: #0f172a; /* Darker background in dark mode */
+    background-color: #0f172a;
     border-bottom: 1px solid #1e293b;
 }
 
-/* Logo transition effects */
+/* Logo hover effects */
 .client:hover .logo-img {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+    transform: rotateX(0deg) scale(1.05);
 }
 
 /* Media query adjustments */
@@ -369,7 +384,8 @@
     }
     
     .client-logo .logo-img {
-        max-height: 100px;
+        width: 140px;
+        height: 90px;
     }
 }
 
@@ -379,6 +395,7 @@
     }
     
     .client-logo .logo-img {
-        max-height: 90px;
+        width: 120px;
+        height: 80px;
     }
 }

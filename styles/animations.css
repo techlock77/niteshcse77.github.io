@@ -170,3 +170,120 @@
 .data-particle:nth-child(10) { top: 95%; left: 30%; animation-duration: 14s; animation-delay: 9s; }
 .data-particle:nth-child(11) { top: 25%; left: 70%; animation-duration: 16s; animation-delay: 10s; }
 .data-particle:nth-child(12) { top: 60%; left: 40%; animation-duration: 18s; animation-delay: 11s; }
+
+/* ==========================================================================
+   Skills Animation
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.2);
+    }
+}
+
+@keyframes particleFade {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(var(--random-x-1), var(--random-y-1)) scale(0.8);
+    }
+    50% {
+        transform: translate(var(--random-x-2), var(--random-y-2)) scale(1.2);
+    }
+    75% {
+        transform: translate(var(--random-x-3), var(--random-y-3)) scale(0.9);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Magic animation for skill items */
+.skill-item.animate {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.skill-item.glow {
+    animation: glowPulse 2s infinite;
+}
+
+/* ==========================================================================
+   Logo Flip Animations (Scoreboard Style)
+   ========================================================================== */
+@keyframes logoFlip {
+    0% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes logoFlicker {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.logo-img.animated {
+    animation: logoFlip 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+}
+
+.logo-img.animated.flicker {
+    animation: logoFlip 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards,
+               logoFlicker 2s ease-in-out 0.8s;
+}
