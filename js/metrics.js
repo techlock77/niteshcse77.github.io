@@ -30,7 +30,7 @@ function initDataMetrics() {
             description: 'High availability across all data systems, ensuring near-continuous access to critical information.'
         },
         { 
-            value: '5000TB+', 
+            value: '3200TB+', 
             label: 'Data Processed', 
             description: 'Total volume of data transformed and analyzed across all enterprise projects.'
         },
@@ -40,13 +40,13 @@ function initDataMetrics() {
             description: 'Optimized query performance enables near real-time data access and analysis.'
         },
         { 
-            value: '40% Reduction', 
-            label: 'Data Processing Time', 
+            value: '40% Improvement', 
+            label: 'in Data Processing Time', 
             description: 'Custom data integration workflows designed and implemented for various business needs.'
         },
         { 
             value: 'BIG5', 
-            label: 'Consulting Experience', 
+            label: 'Consulting Lead Experience', 
             description: 'Custom data integration workflows designed and implemented for various business needs.'
         }
     ];

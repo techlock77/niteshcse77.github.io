@@ -4,12 +4,12 @@
 .page-wrapper {
     display: flex;
     min-height: 100vh;
+    justify-content: center; /* Center horizontally */
 }
 
 .container {
     max-width: 1000px;
     margin: 20px auto;
-    margin-left: 100px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
@@ -18,7 +18,7 @@
     z-index: 1;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    width: calc(100% - 140px);
+    width: 90%; /* Use percentage for better responsiveness */
 }
 
 .container::before {

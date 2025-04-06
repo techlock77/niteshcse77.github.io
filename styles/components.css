@@ -189,7 +189,7 @@
 }
 
 #about-me h3::before {
-    content: '→';
+    content: "";
     position: absolute;
     left: 0;
     color: var(--secondary-color);
