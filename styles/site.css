@@ -1,8 +1,8 @@
 :root {
-  --primary: #2563eb;
-  --secondary: #0f172a;
-  --background: #f8fafc;
-  --text: #1e293b;
+  --primary: #000;
+  --secondary: #222;
+  --background: #fff;
+  --text: #111;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  background: var(--primary);
+  background: linear-gradient(135deg, #000, #444);
   color: #fff;
   padding: 40px 20px;
   text-align: center;
@@ -86,20 +86,23 @@ footer {
   }
 }
 
-.client-grid {
+.client-grid,
+.project-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
 
-.client-tile {
+.client-tile,
+.project-tile {
   width: 150px;
   height: 100px;
   perspective: 600px;
 }
 
-.client-tile .tile-inner {
+.client-tile .tile-inner,
+.project-tile .tile-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -108,7 +111,9 @@ footer {
 }
 
 .client-tile .tile-front,
-.client-tile .tile-back {
+.client-tile .tile-back,
+.project-tile .tile-front,
+.project-tile .tile-back {
   position: absolute;
   top: 0;
   left: 0;
@@ -123,13 +128,18 @@ footer {
   background: #fff;
   color: var(--text);
 }
-
-.client-tile .tile-back {
+.client-tile .tile-back,
+.project-tile .tile-back {
   transform: rotateY(180deg);
   background: var(--primary);
   color: #fff;
 }
-
-.client-tile.flip .tile-inner {
+.client-tile.flip .tile-inner,
+.project-tile.flip .tile-inner {
   transform: rotateY(180deg);
+}
+
+.tile-front img {
+  max-width: 80%;
+  height: auto;
 }
