@@ -1,427 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta id="theme-color" content="#2563eb" id="theme-color-meta">
-    <meta mode="color-scheme" content="light dark">
-    <title>Nitesh's Data Mastery</title>
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nitesh's Data Engineering Portfolio</title>
+  <link rel="stylesheet" href="styles/site.css">
 </head>
 <body>
-    <div class="page-wrapper">
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-indicator-progress"></div>
-            <div class="scroll-sections">
-                <div class="scroll-section" data-section="home">Home</div>
-                <div class="scroll-section" data-section="about-me">About</div>
-				<div class="scroll-section" data-section="skills">Skills</div>
-                <div class="scroll-section" data-section="clients">Projects/Clients</div>
-                <div class="scroll-section" data-section="contact">Contact</div>
-            </div>
-        </div>
-        
-        <div class="container">
-            <!-- Floating data particles for background effect -->
-            <div class="floating-data-particles">
-                <span class="data-particle">DATABRICKS</span>
-                <span class="data-particle">SNOWFLAKE</span>
-                <span class="data-particle">AIRFLOW</span>
-                <span class="data-particle">APIS</span>
-                <span class="data-particle">010</span>
-                <span class="data-particle">101</span>
-                <span class="data-particle">110</span>
-                <span class="data-particle">001</span>
-                <span class="data-particle">CSV</span>
-                <span class="data-particle">ML</span>
-                <span class="data-particle">AI</span>
-                <span class="data-particle">DELTA</span>
-				<span class="data-particle">SQL</span>
-				<span class="data-particle">ETL</span>
-				<span class="data-particle">ICEBERG</span>
-				<span class="data-particle">JSON</span>
-				<span class="data-particle">AZURE</span>
-				<span class="data-particle">AWS</span>
-				<span class="data-particle">AI</span>
-				<span class="data-particle">AWS</span>
-				<span class="data-particle">PySpark</span>
-				<span class="data-particle">Python</span>
-				<span class="data-particle">R</span>
-				<span class="data-particle">NoSQL</span>
-            </div>
-            
-            <!-- Header Section -->
-            <header id="home">
-                <h1>Welcome to Nitesh's Data Mastery</h1>
-                <p>Transforming data into insights and solutions</p>
-				<p>Enterprise Data Engineering Solutions Architect</p>
-            </header>
-            
-            <!-- Navigation Bar -->
-            <nav class="nav">
-                <a href="#home">Home</a>
-                <a href="#about-me">About</a>
-                <a href="#clients">Projects</a>
-                <a href="#clients">Clients</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            
-            <!-- Data Visualization Icon -->
-            <div class="data-icon">
-                <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background Circle -->
-                    <circle cx="100" cy="100" r="95" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-dasharray="5,5" opacity="0.3">
-                        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="45s" repeatCount="indefinite" />
-                    </circle>
-                
-                    <!-- Data Flow Lines -->
-                    <path d="M30,100 C50,30 150,30 170,100" stroke="var(--secondary-color)" stroke-width="2" fill="none" stroke-dasharray="565" stroke-dashoffset="565">
-                        <animate attributeName="stroke-dashoffset" from="565" to="0" dur="3s" repeatCount="indefinite" />
-                    </path>
-                    
-                    <path d="M170,100 C150,170 50,170 30,100" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-dasharray="565" stroke-dashoffset="565">
-                        <animate attributeName="stroke-dashoffset" from="565" to="0" dur="3s" begin="1.5s" repeatCount="indefinite" />
-                    </path>
-                
-                    <!-- Central Data Hub -->
-                    <circle cx="100" cy="100" r="25" fill="url(#hubGradient)">
-                        <animate attributeName="r" values="25;27;25" dur="3s" repeatCount="indefinite" />
-                    </circle>
-                
-                    <!-- Data Nodes -->
-                    <g>
-                        <!-- Node 1: SQL -->
-                        <circle cx="30" cy="100" r="10" fill="var(--primary-color)">
-                            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
-                        </circle>
-                        <text x="30" y="100" text-anchor="middle" fill="white" font-size="8" font-family="monospace" dominant-baseline="middle">SQL</text>
-                        
-                        <!-- Node 2: API -->
-                        <circle cx="170" cy="100" r="10" fill="var(--primary-color)">
-                            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="0.5s" repeatCount="indefinite" />
-                        </circle>
-                        <text x="170" y="100" text-anchor="middle" fill="white" font-size="8" font-family="monospace" dominant-baseline="middle">API</text>
-                        
-                        <!-- Node 3: ETL -->
-                        <circle cx="100" cy="30" r="10" fill="var(--secondary-color)">
-                            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1s" repeatCount="indefinite" />
-                        </circle>
-                        <text x="100" y="30" text-anchor="middle" fill="white" font-size="8" font-family="monospace" dominant-baseline="middle">ETL</text>
-                        
-                        <!-- Node 4: ML -->
-                        <circle cx="100" cy="170" r="10" fill="var(--accent-color)">
-                            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1.5s" repeatCount="indefinite" />
-                        </circle>
-                        <text x="100" y="170" text-anchor="middle" fill="white" font-size="8" font-family="monospace" dominant-baseline="middle">ML</text>
-                    </g>
-                
-                    <!-- Data Packets -->
-                    <circle cx="30" cy="100" r="3" fill="white">
-                        <animate attributeName="cx" values="30;100" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="cy" values="100;100" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
-                    </circle>
-                    
-                    <circle cx="170" cy="100" r="3" fill="white">
-                        <animate attributeName="cx" values="170;100" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="cy" values="100;100" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
-                    </circle>
-                    
-                    <circle cx="100" cy="30" r="3" fill="white">
-                        <animate attributeName="cx" values="100;100" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="cy" values="30;100" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
-                    </circle>
-                    
-                    <circle cx="100" cy="170" r="3" fill="white">
-                        <animate attributeName="cx" values="100;100" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="cy" values="170;100" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
-                    </circle>
-                
-                    <!-- Binary data around the circle -->
-                    <g font-family="monospace" font-size="7" fill="var(--primary-color)" opacity="0.7">
-                        <text x="55" y="50" >DATABRICKS</text>
-                        <text x="140" y="50" opacity="0.7">AWS</text>
-                        <text x="40" y="140" opacity="0.6">SNOWFLAKE</text>
-                        <text x="130" y="140" opacity="0.4">AZURE</text>
-                        
-                        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="30s" repeatCount="indefinite" />
-                    </g>
-                    
-                    <!-- Center Data Text -->
-                    <text x="100" y="95" text-anchor="middle" fill="white" font-size="12" font-family="monospace" font-weight="bold">DATA</text>
-                    <text x="100" y="110" text-anchor="middle" fill="white" font-size="8" font-family="monospace" font-weight="bold">ENGINEERING</text>
-                
-                    <!-- Definitions for gradients and filters -->
-                    <defs>
-                        <linearGradient id="hubGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="var(--primary-color)" />
-                            <stop offset="100%" stop-color="var(--secondary-color)" />
-                            <animate attributeName="x1" values="0%;100%;0%" dur="5s" repeatCount="indefinite" />
-                            <animate attributeName="y1" values="0%;100%;0%" dur="5s" repeatCount="indefinite" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
+  <header>
+    <h1>Nitesh C</h1>
+    <p>Enterprise Data Engineering Architect</p>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-			<!-- About Me Section -->
-            <section id="about-me">
-                <h2>About Me</h2>
-                <p>Hello! I'm Nitesh, a passionate Data Engineer specializing in building scalable data infrastructure and efficient data pipelines. I design and implement solutions that transform raw data into valuable business insights. My expertise includes database systems, ETL processes, big data technologies, and cloud platforms.</p>
-                
-                <!-- Data Metrics Section -->
-                <h3>Performance Metrics</h3>
-                <div id="data-metrics" class="data-metrics">
-                    <!-- Metrics will be populated by JavaScript -->
-                </div>
-            </section>
-			
-			<!-- Skills Section -->
-			<section id="skills">
-				<h2>Technical Skills</h2>
-				<p>My expertise spans across a wide range of data engineering technologies and methodologies:</p>
-				
-				<div class="skills-grid">
-					<div class="skill-category">
-						<h3>Programming</h3>
-						<div class="skill-items">
-							<span class="skill-tag">Python</span>
-							<span class="skill-tag">Advanced SQL</span>
-							<span class="skill-tag">PySpark</span>
-							<span class="skill-tag">API Development</span>
-							<span class="skill-tag">Snowpark</span>
-						</div>
-					</div>
-					
-					<div class="skill-category">
-						<h3>Data Platforms</h3>
-						<div class="skill-items">
-							<span class="skill-tag">Hadoop</span>
-							<span class="skill-tag">Databricks</span>
-							<span class="skill-tag">Snowflake</span>
-							<span class="skill-tag">Redshift</span>
-							<span class="skill-tag">Oracle</span>
-							<span class="skill-tag">SQL Server</span>
-							<span class="skill-tag">MySQL</span>
-							<span class="skill-tag">Netezza</span>
-							<span class="skill-tag">MongoDB</span>
-							<span class="skill-tag">Postgres</span>
-						</div>
-					</div>
-					
-					<div class="skill-category">
-						<h3>Open Table Formats</h3>
-						<div class="skill-items">
-							<span class="skill-tag">Iceberg</span>
-							<span class="skill-tag">Delta</span>
-						</div>
-					</div>
-					
-					<div class="skill-category">
-						<h3>Cloud Platforms</h3>
-						<div class="skill-items">
-							<span class="skill-tag">AWS (SageMaker, EMR, Lambda)</span>
-							<span class="skill-tag">Kafka-Kinesis</span>
-							<span class="skill-tag">Azure</span>
-						</div>
-					</div>
-					
-					<div class="skill-category">
-						<h3>ETL Tools</h3>
-						<div class="skill-items">
-							<span class="skill-tag">Informatica</span>
-							<span class="skill-tag">DBT</span>
-							<span class="skill-tag">SSIS</span>
-							<span class="skill-tag">Glue</span>
-							<span class="skill-tag">DMS</span>
-						</div>
-					</div>
-					
-					<div class="skill-category">
-						<h3>ML Frameworks</h3>
-						<div class="skill-items">
-							<span class="skill-tag">Scikit-Learn</span>
-							<span class="skill-tag">XGBoost</span>
-							<span class="skill-tag">TensorFlow</span>
-							<span class="skill-tag">PyTorch</span>
-						</div>
-					</div>
-					
-					<div class="skill-category">
-						<h3>Tools</h3>
-						<div class="skill-items">
-							<span class="skill-tag">Docker</span>
-							<span class="skill-tag">Kubernetes</span>
-							<span class="skill-tag">Git</span>
-							<span class="skill-tag">Jupyter Notebooks</span>
-							<span class="skill-tag">MLflow</span>
-							<span class="skill-tag">Airflow</span>
-						</div>
-					</div>
-					
-					<div class="skill-category">
-						<h3>Methodologies</h3>
-						<div class="skill-items">
-							<span class="skill-tag">Agile</span>
-							<span class="skill-tag">DevOps</span>
-							<span class="skill-tag">CI/CD</span>
-						</div>
-					</div>
-				</div>
-			</section>
+  <main class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I design scalable data platforms that transform raw information into actionable insights. My experience spans cloud data warehousing, streaming pipelines and analytics solutions.</p>
+    </section>
 
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Databricks</li>
+        <li>Snowflake</li>
+        <li>AWS</li>
+        <li>Airflow</li>
+      </ul>
+    </section>
 
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Visit my <a href="https://github.com/techlock77">GitHub profile</a> for examples of data engineering projects and infrastructure code.</p>
+    </section>
 
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:nitesh@example.com">nitesh@example.com</a></p>
+      <p><a href="your-resume.pdf">View My Resume</a></p>
+    </section>
+  </main>
 
-            <!-- Clients Section -->
-            <section id="clients">
-                <h2>Projects & Clients</h2>
-                <div class="clients-grid">
-                    <div class="client">
-                        <div class="client-logo">
-                            <div class="logo-img logo-3m" title="3M logo"></div>
-                        </div>
-                        <div class="client-info">
-                            <p>Enterprise data warehouse modernization</p>
-                        </div>
-                    </div>
-                    <div class="client">
-                        <div class="client-logo">
-                            <div class="logo-img logo-amazon" title="Amazon logo"></div>
-                        </div>
-                        <div class="client-info">
-                            <p>Supply chain optimization</p>
-                        </div>
-                    </div>
-                    <div class="client">
-                        <div class="client-logo">
-                            <div class="logo-img logo-accenture" title="Accenture logo"></div>
-                        </div>
-                        <div class="client-info">
-                            <p>Cloud migration strategy</p>
-                        </div>
-                    </div>
-                    <div class="client">
-                        <div class="client-logo">
-                            <div class="logo-img logo-ryder" title="Ryder logo"></div>
-                        </div>
-                        <div class="client-info">
-                            <p>Fleet management data integration</p>
-                        </div>
-                    </div>
-                    <div class="client">
-                        <div class="client-logo">
-                            <div class="logo-img logo-hyatt" title="Hyatt logo"></div>
-                        </div>
-                        <div class="client-info">
-                            <p>Customer analytics solution</p>
-                        </div>
-                    </div>
-                    <div class="client">
-                        <div class="client-logo">
-                            <div class="logo-img logo-windhaven" title="Windhaven Insurance logo"></div>
-                        </div>
-                        <div class="client-info">
-                            <p>Real-time analytics platform</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Contact Section with Math Captcha -->
-            <section id="contact">
-                <h2>Contact</h2>
-                <div id="captcha-form">
-                    <p>To view my contact information, please solve this simple math problem:</p>
-                    <form id="verification-form" onsubmit="return verifyCaptcha(event)">
-                        <div class="captcha-container">
-                            <span id="captcha-num1">5</span> + 
-                            <span id="captcha-num2">3</span> = 
-                            <input type="number" id="captcha-answer" placeholder="***" required>
-                        </div>
-                        <button type="submit">Verify & Reveal Contact</button>
-                    </form>
-                    <p class="form-note">This helps prevent automated bots from accessing my contact information.</p>
-                </div>
-                
-<div id="contact-info" style="display: none;">
-                    <p>You can reach me at: <a href="#" id="my-email"></a></p>
-                    <p>Follow me on: 
-                        <a href="https://github.com/techlock77">GitHub</a> | 
-                        <a href="https://www.linkedin.com/in/niteshcse77/">LinkedIn</a>
-                    </p>
-                    <div class="resume-link-container">
-                        <p>Interested in my professional background?</p>
-                        <a href="#" id="resume-link" class="resume-button">View My Resume</a>
-                    </div>
-                </div>
-                
-                <!-- Resume Access Modal -->
-                <div id="resume-modal" class="resume-modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Resume Access</h3>
-                            <button id="modal-close" class="modal-close">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Please enter the password to view my resume.</p>
-                            <form id="password-form" class="password-form">
-                                <div class="form-group">
-                                    <label for="password-input">Password</label>
-                                    <input type="password" id="password-input" class="password-input" placeholder="Enter password" required>
-                                    <div id="password-strength" class="password-strength">
-                                        <div class="strength-segment"></div>
-                                        <div class="strength-segment"></div>
-                                        <div class="strength-segment"></div>
-                                    </div>
-                                    <p class="password-requirements">Password must contain at least 1 capital letter, 1 lowercase letter, and 1 special character.</p>
-                                </div>
-                                <button type="submit" class="password-submit">Access Resume</button>
-                                <div id="error-message" class="error-message"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Footer -->
-            <footer>
-                <p>&copy; 2025 Nitesh's Data Mastery. All rights reserved.</p>
-                <div class="footer-pattern"></div>
-            </footer>
-        </div> <!-- end container -->
-    </div> <!-- end page-wrapper -->
-    
-
-    <!-- Visitor Counter -->
-    <div id="visitor-counter" class="visitor-counter">
-        <div class="visitor-counter-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-        </div>
-        <div>
-            <span class="visitor-label">Visitors: </span>
-            <span id="visitor-count" class="visitor-count">0</span>
-        </div>
-    </div>
-    
-    <script src="js/captcha.js"></script>
-    <script src="js/metrics.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/scroll.js"></script>
-	<script src="js/skills.js"></script>
-    <script src="js/core.js"></script>
-	<script src="js/particle-fix.js"></script>
-    <script src="js/visitor-counter.js"></script>
-	<script src="js/resume-access.js"></script>
-</body>
-</html>
+  <footer>
+    <p>&copy; 2025 Nitesh C</p>
+  </footer>
 </body>
 </html>
