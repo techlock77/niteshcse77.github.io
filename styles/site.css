@@ -1,8 +1,9 @@
 :root {
-  --primary: #2563eb;
-  --secondary: #0f172a;
-  --background: #f8fafc;
-  --text: #1e293b;
+  /* Black and white color palette */
+  --primary: #000;      /* primary accents like header background */
+  --secondary: #222;    /* footer background or subtle accents */
+  --background: #fff;   /* page background */
+  --text: #000;         /* default text color */
 }
 
 body {
