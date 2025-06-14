@@ -1,23 +1,30 @@
 :root {
-  --primary: #000;
-  --secondary: #222;
-  --background: #fff;
-  --text: #111;
+  --primary: #1e3c72;
+  --primary-light: #2a5298;
+  --secondary: #111;
+  --background: #f5f5f5;
+  --text: #222;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   line-height: 1.6;
   color: var(--text);
-  background: var(--background);
+  background: linear-gradient(#fff, var(--background));
 }
 
 header {
-  background: linear-gradient(135deg, #000, #444);
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: #fff;
   padding: 40px 20px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1,
+section h2 {
+  font-family: 'Playfair Display', serif;
 }
 
 nav ul {
@@ -34,20 +41,26 @@ nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.3s;
 }
 
 nav a:hover {
+  color: var(--primary-light);
   text-decoration: underline;
 }
 
 .container {
   max-width: 960px;
   margin: auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 section {
   margin-bottom: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 section h2 {
@@ -65,7 +78,7 @@ section h2 {
 }
 
 .skills-list li {
-  background: var(--primary);
+  background: var(--primary-light);
   color: #fff;
   padding: 5px 10px;
   border-radius: 4px;
@@ -73,7 +86,7 @@ section h2 {
 }
 
 footer {
-  background: var(--secondary);
+  background: linear-gradient(135deg, var(--secondary), #000);
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -90,14 +103,14 @@ footer {
 .project-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 
 .client-tile,
 .project-tile {
-  width: 150px;
-  height: 100px;
+  width: 160px;
+  height: 110px;
   perspective: 600px;
 }
 
@@ -108,6 +121,9 @@ footer {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.6s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .client-tile .tile-front,
@@ -131,7 +147,7 @@ footer {
 .client-tile .tile-back,
 .project-tile .tile-back {
   transform: rotateY(180deg);
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: #fff;
 }
 .client-tile.flip .tile-inner,
