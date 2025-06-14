@@ -11,7 +11,11 @@ body {
   margin: 0;
   line-height: 1.6;
   color: var(--text);
-  background: linear-gradient(#fff, var(--background));
+  background-color: var(--background);
+  background-image: linear-gradient(#fff, var(--background)), url('../images/data-background.svg');
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 200px 200px;
+  background-attachment: scroll, fixed;
 }
 
 header {
