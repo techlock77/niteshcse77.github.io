@@ -103,12 +103,18 @@ footer {
   }
 }
 
-.client-grid,
 .project-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+}
+
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
 }
 
 .client-tile,
